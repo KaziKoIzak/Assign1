@@ -2,19 +2,37 @@
  * hello
  */
 public class hello {
-
+    /*
+     * This is the variable Declerations
+     */
     private static int[] array = {3, 105, 3773, 13, 121, 78, 30751, 16461, 1233222, 348373443, 8769, 1011, 808, 121};
     private static float[] first = {1.23f,2341.2134f,12432f};
     private static float[] second = {9034905.123f, 2341.3452f,.0001293f, .83927841f, .297348f};
     private static float[] third;
     
+    /*
+     * Name: Main
+     * Arguments: Command Line Arguments
+     * Definition: It starts and runs the program and is responsible for activating Part A and Part B of the
+     * Assignment
+     */
     public static void main(String[] args) {
+        System.out.println("Part A of Assignment");
         partA();
+        System.out.println("Part B of Assignment");
         partB();
     }
 
+    /*
+     * Name: Multiple
+     * Arguments: None
+     * Definition: This function is in charge of checking on what the multiple of the function is and to see
+     * if it is a multiple of 7, 11, or 13
+     */
     private static void multiple()
     {
+        //This for loops goes through the whole loop and checks the validity of each statement to make sure
+        //and check if array is a mutliple
         for (int i = 0; i < array.length; i++)
         {
             if (array[i] % 1001 == 0)
@@ -35,6 +53,13 @@ public class hello {
                 System.out.println("The number " + array[i] +  " is not a multiple of 7, 11, 13");
         }
     }
+
+    /*
+     * Name: Prime
+     * Arguments: None
+     * Definition: This function checks if the number is a prime or not with the logic of checking every number
+     * from 2 to square root of 2 where the cycle ends
+     */
     private static void prime()
     {
         int number = 0;
@@ -54,12 +79,21 @@ public class hello {
                 }
             }
     
+            //Tell the user if it is a prime or not
             if(answer)
                 System.out.println("The Number " + number + " is a prime");
             else
                 System.out.println("The Number " + number + " is not a prime");
         }
     }
+
+    /*
+     * Name: Palindrome
+     * Arguments: None
+     * Definition: This function is in charge of making sure the answer is a palindrome or not by slowly
+     * putting the number into a temporary variable that allows it to check the value at the end for it and
+     * if they are the same they are a palindrome
+     */
     private static void palindrome()
     {
         int number = 0;
@@ -82,16 +116,25 @@ public class hello {
                 number /= 10;
             }
     
+            //Check if the answer is a palindrome
             boolean answer = false;
             if (original == reversed)
                 answer = true;
     
+            //Tell user the answer
             if(answer)
                 System.out.println("The Number " + reversed + " is a Palindrome of itself");
             else
                 System.out.println("The Number " + reversed + " is not a Palindrome of itself");
         }
     }
+
+    /*
+     * Name: Sum
+     * Arguments: None
+     * Definition: This function is in chrge of adding the sum of each of the digits of the number in order
+     * to check if the sum of the digits is odd or even. 
+     */
     private static void sum()
     {
         int number = 0;
@@ -115,6 +158,7 @@ public class hello {
     
             int even = sum % 2;
     
+            //Tell the user the answer of the number
             switch (even) {
                 case 0:
                     System.out.println("The sum of the digits for " + array[i] +  " is " + sum + " which is even");
@@ -126,19 +170,36 @@ public class hello {
         }
     }
 
+    /*
+     * Name: PartA
+     * Arguments: None
+     * Definition: This function runs Part A of the assignment to call Multiple, Sum, Prime and Palindrome
+     * This is done here
+     */
     private static void partA()
     {
+        //The user gets told which function is going to be activated
+        System.out.println("Multiples of 7, 11 or 13: ");
         multiple();
+        System.out.println("\nSum of digits is odd or even: ");
         sum();
+        System.out.println("\nNumber is Prime or not: ");
         prime();
+        System.out.println("\nNumber is a palindrom or not:");
         palindrome();
     }
 
+    /*
+     * Name: PartA
+     * Arguments: None
+     * Definition: 
+     */
     private static void printArray(float[] arr)
     {
         for (float i : arr) {
             System.out.print(i + " ");
         }
+        System.out.println("\n");
     }
 
     private static void arraySorter(float[] arr)
@@ -176,7 +237,7 @@ public class hello {
 
     private static void partB()
     {
-        System.out.println("Part B of Assignment");
+        System.out.println("\nPart B of Assignment");
         System.out.println("Before Sorted Arrays: ");
         printArray(first);
         printArray(second);
@@ -184,11 +245,11 @@ public class hello {
         arraySorter(first);
         arraySorter(second);
         
-        System.out.println("After Sorted Arrays: ");
+        System.out.println("\nAfter Sorted Arrays: ");
         printArray(first);
         printArray(second); 
 
-        System.out.println("Merged Array: ");
+        System.out.println("\nMerged Array: ");
         arrayMaker(first, second);
         printArray(third);
     }

@@ -6,7 +6,7 @@ public class hello {
      * This is the variable Declerations
      */
     private static int[] array = {3, 105, 3773, 13, 121, 78, 30751, 16461, 1233222, 348373443, 8769, 1011, 808, 121};
-    private static float[] first = {1.23f,2341.2134f,12432f};
+    private static float[] first = {1.23f,2341.2134f,12432f, .5675f, .5745f, .584568f};
     private static float[] second = {9034905.123f, 2341.3452f,.0001293f, .83927841f, .297348f};
     private static float[] third;
     
@@ -19,7 +19,7 @@ public class hello {
     public static void main(String[] args) {
         System.out.println("Part A of Assignment");
         partA();
-        System.out.println("Part B of Assignment");
+        System.out.println("\n\nPart B of Assignment");
         partB();
     }
 
@@ -190,18 +190,24 @@ public class hello {
     }
 
     /*
-     * Name: PartA
-     * Arguments: None
-     * Definition: 
+     * Name: Print Array
+     * Arguments: Float Aray
+     * Definition: This function prints out arrays
      */
     private static void printArray(float[] arr)
     {
+        //Go through each element of the array in print it out
         for (float i : arr) {
             System.out.print(i + " ");
         }
         System.out.println("\n");
     }
 
+    /*
+     * Name: Array Sorter
+     * Arguments: Array
+     * Definition: This function using a bubble sort to sort the array
+     */
     private static void arraySorter(float[] arr)
     {
         int n = arr.length;
@@ -219,38 +225,45 @@ public class hello {
         }
     }
 
-    private static void arrayMaker(float[] arr, float[] arr2)
+    /*
+     * Name: Array Maker
+     * Arguments: None
+     * Definition: This array maker is in charge of combining both the first arrays into a larger second
+     * array that has each array merged sepereately beforehand
+     */
+    private static void arrayMaker()
     {
-        int i = 0;
+        int j = 0;
         // Put array 1 into larger array
-        for (i = 0; i < arr.length; i++)
-        {
-            third[i] = arr[i];
+        for (float i : first) {
+            third[j] = i;
+            j++;
         }
         // put array 2 into larger array
-        for (int j = 0; j < arr2.length; j++)
-        {
-            third[i] = arr2[j];
-            i++;
+        for (float i : second) {
+            third[j] = i;
         }
     }
 
     private static void partB()
     {
-        System.out.println("\nPart B of Assignment");
+        //This tells the user what is currently happeing by printing the unsorted arrates
         System.out.println("Before Sorted Arrays: ");
         printArray(first);
         printArray(second);
 
+        //Sorts the arrays
         arraySorter(first);
         arraySorter(second);
         
+        //Shows the user sorted arrays
         System.out.println("\nAfter Sorted Arrays: ");
         printArray(first);
         printArray(second); 
 
+        //Combines the array
         System.out.println("\nMerged Array: ");
-        arrayMaker(first, second);
+        arrayMaker();
         printArray(third);
     }
 }

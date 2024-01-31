@@ -234,7 +234,7 @@ void partA()
 */
 void partB()
 {
-    cout << "\nPart B of the Assignment" << endl;
+    cout << "\n\nPart B of the Assignment" << endl;
 
     // Declare float arrays
     float system[] = {1, 2, 3, 4, 5, 6, 7, 12.4362, 24654.1234, 1234475.234, .00234923, .2341, 13, 14, 15};

@@ -2,6 +2,7 @@ program main
   implicit none
 
   call partA()
+  call partB()
 
   contains
   subroutine partA()
@@ -21,7 +22,47 @@ program main
   end subroutine partA
 
   subroutine partB()
+    real, allocatable :: first(:), second(:), third(:)
+    integer :: size, size2, size3
+
+    size = 8
+    size2 = 11
+    size3 = size + size2
+
+    allocate(first(size))
+    allocate(second(size2))
+    allocate(third(size3))
+
+    first = [1.123,25423.23,1234.1,9045.2,34523.3,7456.4,909.5,34.5,6.54]
+    second = [.51234,.23414,.90345,.234523234,.8945,8946.453,94055.345,9845.325, 945334.34, 5.0, 1.1]
+
+    call printArray(first, size)
+    call printArray(second, size2)
+    call sortArray(first, size)
+    call sortArray(second, size2)
+    call printArray(first, size)
+    call printArray(second, size2)
+    call mergeArray(first, second, third, size, size2, size3)
+
   end subroutine partB
+
+  subroutine printArray(arry, size)
+    real, intent(in) :: arry(:)
+    integer, intent(in) :: size
+
+  end subroutine printArray
+
+  subroutine sortArray(arry, size)
+    real, intent(in) :: arry(:)
+    integer, intent(in) :: size
+
+  end subroutine sortArray
+
+  subroutine mergeArray(arry, arry2, arry3, size, size2, size3)
+    real, intent(in) :: arry(:), arry2(:), arry3(:)
+    integer, intent(in) :: size, size2, size3
+
+  end subroutine mergeArray
 
   subroutine multiple(arr)
     integer, intent(in) :: arr(14)

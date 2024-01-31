@@ -42,26 +42,52 @@ program main
     call sortArray(second, size2)
     call printArray(first, size)
     call printArray(second, size2)
-    call mergeArray(first, second, third, size, size2, size3)
+    call mergeArray(first, second, third, size, size2)
 
   end subroutine partB
 
-  subroutine printArray(arry, size)
-    real, intent(in) :: arry(:)
+  subroutine printArray(arr, size)
+    real, intent(in) :: arr(:)
     integer, intent(in) :: size
-
+    integer :: i
+    do i = 1, size
+      write(*, *) arr(i), ' '
+    end do
+    write(*, *)
   end subroutine printArray
 
-  subroutine sortArray(arry, size)
-    real, intent(in) :: arry(:)
+  subroutine sortArray(arr, size)
+    real, intent(inout) :: arr(:)
     integer, intent(in) :: size
-
+    integer :: i, j
+    real :: temp
+    do i = 1, size - 1
+      do j = 1, size - i
+        if (arr(j) > arr(j + 1)) then
+          ! Swap elements if they are in the wrong order
+          temp = arr(j)
+          arr(j) = arr(j + 1)
+          arr(j + 1) = temp
+        end if
+      end do
+    end do
   end subroutine sortArray
 
-  subroutine mergeArray(arry, arry2, arry3, size, size2, size3)
-    real, intent(in) :: arry(:), arry2(:), arry3(:)
-    integer, intent(in) :: size, size2, size3
-
+  subroutine mergeArray(arr, arr2, arr3, size, size2)
+    real, intent(inout) :: arr(:), arr2(:), arr3(:)
+    integer, intent(in) :: size, size2
+    integer :: i, j
+  ! Copy elements from array 1 to larger array
+    do i = 1, size
+      arr3(i) = arr(i)
+    end do
+  
+    ! Copy elements from array 2 to larger array
+    j = 1
+    do i = size + 1, size + size2
+      arr3(i) = arr2(j)
+      j = j + 1
+    end do
   end subroutine mergeArray
 
   subroutine multiple(arr)

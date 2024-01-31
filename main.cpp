@@ -1,7 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <random>
-#include <chrono>
 
 using namespace std;
 
@@ -110,37 +107,37 @@ void palindrome()
     }
 }
 
-void arraySorter(vector<float> &sorting)
+void printArray(float *arr, size_t size)
 {
-    int n = sorting.size();
-    bool swapped;
+}
 
-    for (int i = 0; i < n - 1; ++i)
+void arraySorter(float *arr, size_t size)
+{
+    for (int i = 0; i < size - 1; ++i)
     {
-        swapped = false;
-
-        for (int j = 0; j < n - i - 1; ++j)
+        for (int j = 0; j < size - i - 1; ++j)
         {
-            if (sorting[j] > sorting[j + 1])
+            // Swap if the element found is greater than the next element
+            if (arr[j] > arr[j + 1])
             {
-                swap(sorting[j], sorting[j + 1]);
-                swapped = true;
+                swap(arr[j], arr[j + 1]);
             }
-        }
-
-        // If no swapping occurred in the inner loop, the array is already sorted
-        if (!swapped)
-        {
-            break;
         }
     }
 }
 
-vector<float> arrayMaker(vector<float> first, vector<float> second)
+void arrayMaker(float *arr, float *arr2, float *arr3, size_t size, size_t size2)
 {
-    vector<float> temp;
-
-    return temp;
+    int i = 0;
+    for (i = 0; i < size; i++)
+    {
+        arr3[i] = arr[i];
+    }
+    for (int j = 0; j < size2; j++)
+    {
+        arr3[i] = arr2[i];
+        i++;
+    }
 }
 
 void partA()
@@ -153,15 +150,22 @@ void partA()
 
 void partB()
 {
-    vector<float> firstOne = {3, 105, 3773, 13, 121, 78, 30751, 16461, 1233222, 8769, 1011, 808, 121};
-    vector<float> secondOne = {1.23, 1234.23, 34563, 5467.234, 9067.3432, -3452, -0053.345};
+    float system[] = {1, 2, 3, 4, 5, 6, 7, 12.4362, 24654.1234, 1234475.234, .00234923, .2341, 13, 14, 15};
+    float Programming[] = {.123, 13462234, 8756, 3456345, 3452, .2345237543, .74567, 2345634.3456, 48753.3456, 4356, 345345, 343562345};
 
-    vector<float> biggerOne;
+    size_t size = sizeof(system) / sizeof(system[0]);
+    size_t size2 = sizeof(Programming) / sizeof(Programming[0]);
 
-    arraySorter(firstOne);
-    arraySorter(secondOne);
+    printArray(system, size);
+    printArray(Programming, size2);
 
-    biggerOne = arrayMaker(firstOne, secondOne);
+    arraySorter(system, size);
+    arraySorter(Programming, size2);
+
+    size_t size3 = size + size2;
+    float newArray[size3];
+
+    arrayMaker(system, Programming, newArray, size, size2);
 }
 
 int main()

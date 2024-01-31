@@ -11,11 +11,11 @@ program main
     write(*,*) 'Part A of Assignment'
     write(*,*) 'Multiples function for 7, 11 or 13: '
     call multiple(myArray)
-    write(*,*) 'Sum function if the digits are odd or even: '
+    write(*,*) NEW_LINE('A')//'Sum function if the digits are odd or even: '
     call sum(myArray)
-    write(*,*) 'Check if the numbers are prime or not: '
+    write(*,*) NEW_LINE('A')//'Check if the numbers are prime or not: '
     call prime(myArray)
-    write(*,*) 'Check if the element is a palindrome or not: '
+    write(*,*) NEW_LINE('A')//'Check if the element is a palindrome or not: '
     call palindrome(myArray)
 
   end subroutine partA

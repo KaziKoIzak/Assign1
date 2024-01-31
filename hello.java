@@ -3,13 +3,14 @@
  */
 public class hello {
 
-    public static int[] array = {3, 105, 3773, 13, 121, 78, 30751, 16461, 1233222, 348373443, 8769, 1011, 808, 121};
+    private static int[] array = {3, 105, 3773, 13, 121, 78, 30751, 16461, 1233222, 348373443, 8769, 1011, 808, 121};
+    private static float[] first = {1.23f,2341.2134f,12432f};
+    private static float[] second = {9034905.123f, 2341.3452f,.0001293f, .83927841f, .297348f};
+    private static float[] third;
     
     public static void main(String[] args) {
-        multiple();
-        prime();
-        palindrome();
-        sum();
+        partA();
+        partB();
     }
 
     private static void multiple()
@@ -123,5 +124,72 @@ public class hello {
                     break;
             }
         }
+    }
+
+    private static void partA()
+    {
+        multiple();
+        sum();
+        prime();
+        palindrome();
+    }
+
+    private static void printArray(float[] arr)
+    {
+        for (float i : arr) {
+            System.out.print(i + " ");
+        }
+    }
+
+    private static void arraySorter(float[] arr)
+    {
+        int n = arr.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                // Compare adjacent elements and swap if they are in the wrong order
+                if (arr[j] > arr[j + 1]) {
+                    // Swap arr[j] and arr[j+1]
+                    float temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    private static void arrayMaker(float[] arr, float[] arr2)
+    {
+        int i = 0;
+        // Put array 1 into larger array
+        for (i = 0; i < arr.length; i++)
+        {
+            third[i] = arr[i];
+        }
+        // put array 2 into larger array
+        for (int j = 0; j < arr2.length; j++)
+        {
+            third[i] = arr2[j];
+            i++;
+        }
+    }
+
+    private static void partB()
+    {
+        System.out.println("Part B of Assignment");
+        System.out.println("Before Sorted Arrays: ");
+        printArray(first);
+        printArray(second);
+
+        arraySorter(first);
+        arraySorter(second);
+        
+        System.out.println("After Sorted Arrays: ");
+        printArray(first);
+        printArray(second); 
+
+        System.out.println("Merged Array: ");
+        arrayMaker(first, second);
+        printArray(third);
     }
 }

@@ -8,7 +8,6 @@ public class hello {
     private static int[] array = {3, 105, 3773, 13, 121, 78, 30751, 16461, 1233222, 348373443, 8769, 1011, 808, 121};
     private static float[] first = {1.23f,2341.2134f,12432f, .5675f, .5745f, .584568f};
     private static float[] second = {9034905.123f, 2341.3452f,.0001293f, .83927841f, .297348f};
-    private static float[] third;
     
     /*
      * Name: Main
@@ -231,7 +230,7 @@ public class hello {
      * Definition: This array maker is in charge of combining both the first arrays into a larger second
      * array that has each array merged sepereately beforehand
      */
-    private static void arrayMaker()
+    private static void arrayMaker(float[] third)
     {
         int j = 0;
         // Put array 1 into larger array
@@ -242,6 +241,7 @@ public class hello {
         // put array 2 into larger array
         for (float i : second) {
             third[j] = i;
+            j++;
         }
     }
 
@@ -261,9 +261,13 @@ public class hello {
         printArray(first);
         printArray(second); 
 
+        int size = first.length + second.length;
+
+        float[] third = new float[size];
+
         //Combines the array
         System.out.println("\nMerged Array: ");
-        arrayMaker();
+        arrayMaker(third);
         printArray(third);
     }
 }

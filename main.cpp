@@ -13,7 +13,6 @@ int list[14] = {3, 105, 3773, 13, 121, 78, 30751, 16461, 1233222, 348373443, 876
     Definition: This function takes care of checking if the element in the array is a multiple of 7, 11, or
     13. This is done by performing a mathematical operation with the modulo
 */
-
 void multiple()
 {
     // Loop to go through the array

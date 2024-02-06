@@ -1,3 +1,4 @@
+import java.util.HashSet;
 /**
  * hello
  */
@@ -7,7 +8,7 @@ public class hello {
      */
     private static int[] array = {3, 105, 3773, 13, 121, 78, 30751, 16461, 1233222, 348373443, 8769, 1011, 808, 121};
     private static float[] first = {1.23f,2341.2134f,12432f, .5675f, .5745f, .584568f};
-    private static float[] second = {9034905.123f, 2341.3452f,.0001293f, .83927841f, .297348f};
+    private static float[] second = {1.23f, 2341.3452f,.0001293f, .83927841f, .297348f};
     
     /*
      * Name: Main
@@ -245,6 +246,35 @@ public class hello {
         }
     }
 
+    /*
+     * Name: Array Maker
+     * Arguments: Array
+     * Definition: This array duplicater is in charge of removing any duplicates found
+     */
+    private static float[] removeDuplicates(float[] arr) {
+        // Use a HashSet to store unique elements
+        HashSet<Float> uniqueSet = new HashSet<>();
+
+        // Iterate through the array and add unique elements to the set
+        for (float element : arr) {
+            uniqueSet.add(element);
+        }
+
+        // Convert the set back to an array
+        float[] uniqueArray = new float[uniqueSet.size()];
+        int index = 0;
+        for (float element : uniqueSet) {
+            uniqueArray[index++] = element;
+        }
+
+        return uniqueArray;
+    }
+
+    /*
+     * Name: partB
+     * Arguments: None
+     * Definition: This function runs part B of the homework assignemnt. 
+     */
     private static void partB()
     {
         //This tells the user what is currently happeing by printing the unsorted arrates
@@ -268,6 +298,7 @@ public class hello {
         //Combines the array
         System.out.println("\nMerged Array: ");
         arrayMaker(third);
+        third = removeDuplicates(third);
         printArray(third);
     }
 }

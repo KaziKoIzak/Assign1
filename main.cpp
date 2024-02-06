@@ -1,6 +1,8 @@
 // Library Inclusion
 #include <iostream>
 #include <cmath>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -227,6 +229,25 @@ void partA()
 }
 
 /*
+    Name: Remove Duplicates
+    In Args: Array, size
+    Out Args: None
+    Definition: This function gets rid of duplicates in the array.
+*/
+void removeDuplicates(float arr[], size_t size)
+{
+    // Convert the array to a vector for convenience
+    vector<float> uniqueVector(arr, arr + size);
+
+    // Use the erase-remove idiom to remove duplicates
+    uniqueVector.erase(unique(uniqueVector.begin(), uniqueVector.end()), uniqueVector.end());
+
+    // Copy the unique elements back to the original array
+    size = static_cast<int>(uniqueVector.size());
+    copy(uniqueVector.begin(), uniqueVector.end(), arr);
+}
+
+/*
     Name: Part B
     In Args: None
     Out Args: None
@@ -238,7 +259,7 @@ void partB()
 
     // Declare float arrays
     float system[] = {1, 2, 3, 4, 5, 6, 7, 12.4362, 24654.1234, 1234475.234, .00234923, .2341, 13, 14, 15};
-    float Programming[] = {.123, 13462234, 8756, 3456345, 3452, .2345237543, .74567, 2345634.3456, 48753.3456, 4356, 345345, 695};
+    float Programming[] = {1, 13462234, 8756, 3456345, 3452, .2345237543, .74567, 2345634.3456, 48753.3456, 4356, 345345, 695};
 
     // Get the size of the array
     size_t size = sizeof(system) / sizeof(system[0]);
@@ -266,6 +287,7 @@ void partB()
 
     // Make the merged arary
     arrayMaker(system, Programming, newArray, size, size2);
+    removeDuplicates(newArray, size3);
 
     cout << "\nMerged Array" << endl;
 

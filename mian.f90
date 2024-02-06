@@ -83,11 +83,33 @@ program main
   
     ! Merge arrays and print the result
     call mergeArray(first, second, third, size, size2)
+    call removeDuplicates(third, size3)
     call printArray(third, size3)
 
   end subroutine partB
 
-  
+  subroutine removeDuplicates(arr, size)
+    real, dimension(:), intent(inout) :: arr
+    integer, intent(inout) :: size
+    integer :: i, j, count
+    
+    ! Loop through the array to remove duplicates
+    count = size
+    do i = 1, count
+        do j = i + 1, count
+            if (arr(i) == arr(j)) then
+                ! Shift elements to overwrite duplicates
+                arr(j:count-1) = arr(j+1:count)
+                count = count - 1
+                j = j - 1
+            end if
+        end do
+    end do
+    
+    ! Resize the array to the new count
+    size = count
+    end subroutine removeDuplicates
+
     !Name: Print Array
     !In Args: Array and Size
     !Out Args: None

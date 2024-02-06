@@ -1,4 +1,10 @@
+Here we have these programs and instead of having an optional activation of Part A and Part B, the programs
+runs both of them back to back, so if you scroll up you can see Part A and further down you can where it says part B
+
 Hey, in order to run the files you, this is what you have to do
+
+I would've sent you the executables, but unfortunately I have an ARM processor, so the binary file
+would be unable to be executed on your system.
 
 For the C++ program, just type in the following command
 
@@ -16,7 +22,7 @@ gfortran -o Mian mian.f90
 This is the executable file for the Fortran program
 
 And Finally
-For the Java Program, just type in the following command
+For the Java Program, just type in the following command.
 
 java hello
 

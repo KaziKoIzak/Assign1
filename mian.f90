@@ -3,6 +3,9 @@ program main
 
   !This is the main part of the program where we call subroutine part A and B
   call partA()
+
+  write(*,*) NEW_LINE('A')//'---------------------------------------------------------'
+
   call partB()
 
   !Lists all the subroutines

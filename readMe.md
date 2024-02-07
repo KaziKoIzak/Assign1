@@ -22,7 +22,7 @@ gfortran -o Mian mian.f90
 This is the executable file for the Fortran program
 
 And Finally
-For the Java Program, just type in the following command.
+For the Java Program, just type in the following commands
 
 javac hello.java
 java hello

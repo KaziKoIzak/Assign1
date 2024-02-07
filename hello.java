@@ -1,3 +1,16 @@
+/*
+    Name: Izak Benitez-Lopez
+    Due Date: February 7th, 2024
+    Assignment: Assign 1
+    Definition: This program takes care of Part A and Part B of the assignment and it allows us to take care
+    of the requirements of the program. These were the following prograrms
+    1. a. Value of the mutliple of 7, 11, 13
+    b. Is the sum of the digits odd or even
+    c. Is the number a prime?
+    d. Is the number a palindrome
+    2. Merge two sorted arrays together one after another after they were sorted with abubble sort.
+*/
+
 import java.util.HashSet;
 /**
  * hello

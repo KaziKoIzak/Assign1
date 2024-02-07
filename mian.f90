@@ -54,10 +54,11 @@ program main
     allocate(first(size))
     allocate(second(size2))
     allocate(third(size3))
+
   
     ! Initialize values for the arrays
     first = [1.123, 25423.23, 1234.1, 9045.2, 34523.3, 7456.4, 909.5, 34.5, 6.54]
-    second = [.51234, .23414, .90345, .234523234, .8945, 8946.453, 94055.345, 9845.325, 945334.34, 5.0, 1.1]
+    second = [1.123, .23414, .90345, .234523234, .8945, 8946.453, 94055.345, 9845.325, 945334.34, 5.0, 1.1]
   
     ! Print header for Part B of Assignment
     write(*,*) NEW_LINE('A')//'Part B of Assignment'
@@ -83,32 +84,9 @@ program main
   
     ! Merge arrays and print the result
     call mergeArray(first, second, third, size, size2)
-    call removeDuplicates(third, size3)
     call printArray(third, size3)
 
   end subroutine partB
-
-  subroutine removeDuplicates(arr, size)
-    real, dimension(:), intent(inout) :: arr
-    integer, intent(inout) :: size
-    integer :: i, j, count
-    
-    ! Loop through the array to remove duplicates
-    count = size
-    do i = 1, count
-        do j = i + 1, count
-            if (arr(i) == arr(j)) then
-                ! Shift elements to overwrite duplicates
-                arr(j:count-1) = arr(j+1:count)
-                count = count - 1
-                j = j - 1
-            end if
-        end do
-    end do
-    
-    ! Resize the array to the new count
-    size = count
-    end subroutine removeDuplicates
 
     !Name: Print Array
     !In Args: Array and Size
@@ -167,9 +145,12 @@ program main
   
     ! Copy elements from array 2 to larger array
     j = 1
+
     do i = size + 1, size + size2
-      arr3(i) = arr2(j)
-      j = j + 1
+      if(arr3(i) .NE. arr2(j)) then
+        arr3(i) = arr2(j)
+        end if
+        j = j + 1
     end do
   end subroutine mergeArray
 

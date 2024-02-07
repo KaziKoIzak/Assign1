@@ -24,6 +24,7 @@ This is the executable file for the Fortran program
 And Finally
 For the Java Program, just type in the following command.
 
+javac hello.java
 java hello
 
 This will run the java program
